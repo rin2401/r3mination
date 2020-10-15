@@ -4,14 +4,6 @@ console.log("From r3mina with love <3")
 host = "http://r3mina.herokuapp.com"    
 
 function replace(){
-
-    iframe = document.getElementsByTagName('iframe')[0]
-    console.log(iframe)
-
-    content = iframe.contentWindow.document.body.innerHTML
-
-    console.log(content)
-
     paths = window.location.pathname.split("/")
     id = paths[paths.length-3]
     name = paths[paths.length-2]
