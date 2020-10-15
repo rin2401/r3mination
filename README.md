@@ -22,9 +22,10 @@
 - [x] View from https://anilist.co watch
 - [ ] Merge id and name
 
-#r3ads
+# r3ads
 <p align="center"><img src="r3ads/logo.png"></p>
 
 ## Feature
-- [x] Remove sponsor ads
-- [ ] Remove suggest and friends activities
+- [x] Remove Sponsored ads
+- [x] Remove Suggested for You
+- [ ] Remove friends activities
