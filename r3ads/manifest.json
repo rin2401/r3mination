@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "r3ads",
+    "version": "0.0.1",
+    "description": "For anim3r",
+    "homepage_url": "http://r3mina.herokuapp.com",
+    "author": "rin2401",
+    "icons": {
+        "16": "logo.png",
+        "48": "logo.png",
+        "128": "logo.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://facebook.com/*", "*://*.facebook.com/*"],
+            "js": ["r3ads.js"]
+        }
+    ]
+}
