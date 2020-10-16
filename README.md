@@ -26,6 +26,8 @@
 <p align="center"><img src="r3ads/logo.png"></p>
 
 ## Feature
-- [x] Remove Sponsored ads
-- [x] Remove Suggested for You
-- [ ] Remove friends activities
+- [x] Sponsored: Remove sponsored ads
+- [x] Suggested: Remove suggested for you
+- [x] Activity: Remove friends activities commented and shared
+- [x] Shared: Remove shared post
+- [x] Black: Remove post contains black list
