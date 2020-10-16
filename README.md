@@ -29,4 +29,5 @@
 - [x] Sponsored: Remove sponsored ads
 - [x] Suggested: Remove suggested for you
 - [x] Activity: Remove friends activities commented and shared
+- [x] Shared: Remove shared public post
 - [x] Black: Remove post contains black list

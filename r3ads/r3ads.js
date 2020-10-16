@@ -1,7 +1,7 @@
 console.log("From r3ads with love <3")
 
 BLACK = ["sale", "giveaway"]
-ACTIVITY = ["comment", "share", "replie"]
+ACTIVITY = ["commented", "shared", "replied", "interested"]
 
 function remove_newline(text) {
     return text.replace(/(\r\n|\n|\r)/gm, " ")
@@ -36,10 +36,11 @@ function remove() {
         }
 
         // share = article.querySelectorAll('strong')
-        // if(share.length > 1) {
-        //     console.log("%cShared " + article.getAttribute("aria-posinset"), "font-weight: bold; color: green;", remove_newline(article.innerText))
-        //     article.remove()
-        // }
+        share = article.querySelectorAll('[aria-label="Shared with Public"]')
+        if(share.length > 1) {
+            console.log("%cShared " + article.getAttribute("aria-posinset"), "font-weight: bold; color: green;", remove_newline(article.innerText))
+            article.remove()
+        }
     }
 }
 
