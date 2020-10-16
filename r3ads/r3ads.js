@@ -1,6 +1,6 @@
 console.log("From r3ads with love <3")
 
-BLACK = ["sale", "giveaway"]
+BLACK = []
 ACTIVITY = ["commented", "shared", "replied", "interested"]
 
 function remove_newline(text) {
@@ -36,7 +36,7 @@ function remove() {
         }
 
         // share = article.querySelectorAll('strong')
-        share = article.querySelectorAll('[aria-label="Shared with Public"]')
+        share = article.querySelectorAll('[aria-label^="Shared with"]')
         if(share.length > 1) {
             console.log("%cShared " + article.getAttribute("aria-posinset"), "font-weight: bold; color: green;", remove_newline(article.innerText))
             article.remove()
