@@ -1,20 +1,36 @@
 console.log("From r3ads with love <3")
 
+BLACK = ["sale", "giveaway"]
+
+function remove_newline(text) {
+    return text.replace(/(\r\n|\n|\r)/gm, " ")
+}
+
 function remove() {
     spons = document.querySelectorAll('[aria-label="Sponsored"]')
     for(spon of spons) {
         article = spon.closest('[role="article"]')
+        console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
         article.remove()
-        text = article.innerText.split("·")
-        console.log("Sponsored", text[0], text[2])
     }
 
     articles = document.querySelectorAll('[role="article"]')
     for(article of articles) {
-        if(article.innerText.includes("Suggested for You")) {
+        text = article.innerText.split("·")
+        if(text[0].includes("Suggested")) {
+            console.log("%cSuggested " + article.getAttribute("aria-posinset"), "font-weight: bold; color: blue;", remove_newline(article.innerText))
             article.remove()
-            text = article.innerText.split("·")
-            console.log(text[0], text[2])
+        }
+        text_lower =  article.innerText.toLowerCase()
+        if (BLACK.some(v => text_lower.includes(v))) {
+            console.log("%cBlack " + article.getAttribute("aria-posinset"), "font-weight: bold; color: black;", remove_newline(article.innerText))
+            article.remove()
+        }
+
+        share = article.querySelectorAll('strong')
+        if(share.length > 1) {
+            console.log("%cShared " + article.getAttribute("aria-posinset"), "font-weight: bold; color: green;", remove_newline(article.innerText))
+            article.remove()
         }
     }
 }
