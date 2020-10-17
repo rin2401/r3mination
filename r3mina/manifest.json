@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "r3mina",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "For anim3r",
     "homepage_url": "http://r3mina.herokuapp.com",
     "author": "rin2401",
@@ -12,7 +12,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://anilist.co/*", "http://anilist.co/*"],
+            "matches": ["*://anilist.co/*", "*://*.anilist.co/*"],
             "js": ["r3mina.js"]
         }
     ]

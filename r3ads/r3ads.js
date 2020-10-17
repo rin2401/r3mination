@@ -1,7 +1,7 @@
 console.log("From r3ads with love <3")
 
 BLACK = []
-ACTIVITY = ["commented", "shared", "replied", "interested"]
+ACTIVITY = ["commented", "shared", "replied", "interested", "marked"]
 
 function remove_newline(text) {
     return text.replace(/(\r\n|\n|\r)/gm, " ")
@@ -31,7 +31,7 @@ function remove() {
 
         head_lower =  text[0].toLowerCase()
         if (ACTIVITY.some(v => head_lower.includes(v))) {
-            console.log("%cActivity " + article.getAttribute("aria-posinset"), "font-weight: bold; color: Orange;", remove_newline(article.innerText))
+            console.log("%cActivity " + article.getAttribute("aria-posinset"), "font-weight: bold; color: orange;", remove_newline(article.innerText))
             article.remove()
         }
 
