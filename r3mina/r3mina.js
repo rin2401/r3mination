@@ -23,11 +23,11 @@ function replace(){
             this.style.filter = "";
         } 
 
-        cover.addEventListener("click", function(){
+        cover.onclick = function(){
             path = `${host}/anime/${name}`
             console.log(path)
             window.open(path)
-        });
+        }
     }
 
     if (paths[paths.length-1] != "watch") {
