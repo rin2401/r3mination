@@ -22,10 +22,18 @@ function remove() {
 
         articles = document.querySelectorAll('[role="article"]')
         for(article of articles) {
-            text = article.innerText.split("·")
 
+            spans = article.querySelectorAll('span')
+            for (span of spans) {
+                if (span.style.position == "absolute") {
+                    span.remove()
+                }
+            }
+
+            text = article.innerText.split("·")
             text_inline = text[0].replace(/(\r\n|\n|\r)/gm, "")
-            if(text_inline.includes("Spo") && settings.suggest) {
+            // console.log(text_inline)
+            if(text_inline.includes("Sponsored") && settings.sponsored) {
                 console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
                 article.remove()
             }
