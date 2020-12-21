@@ -23,6 +23,13 @@ function remove() {
         articles = document.querySelectorAll('[role="article"]')
         for(article of articles) {
             text = article.innerText.split("·")
+
+            text_inline = text[0].replace(/(\r\n|\n|\r)/gm, "")
+            if(text_inline.includes("Spo") && settings.suggest) {
+                console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
+                article.remove()
+            }
+
             if(text[0].includes("Suggested") && settings.suggest) {
                 console.log("%cSuggested " + article.getAttribute("aria-posinset"), "font-weight: bold; color: blue;", remove_newline(article.innerText))
                 article.remove()
@@ -60,17 +67,14 @@ function remove_tab() {
     chat_tab = document.querySelectorAll('[role="complementary"]')
     for(tab of chat_tab) {
         tab.remove()
-        console.log(tab)
     }
     room_tab = document.querySelectorAll('[data-pagelet="VideoChatHomeUnit"]')
     for(tab of room_tab) {
         tab.remove()
-        console.log(tab)
     }
     story_tab = document.querySelectorAll('[data-pagelet="Stories"]')
     for(tab of story_tab) {
         tab.remove()
-        console.log(tab)
     }
 }
 chrome.storage.sync.get(["tab"], function(settings) {
