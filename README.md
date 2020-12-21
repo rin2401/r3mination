@@ -13,9 +13,9 @@
 - Go to anilist.co and watch anime
 
 ## How to use
-![alt text](image/r3nana_1.png "r3nima")
-![alt text](image/r3nana_2.png "r3nima")
-![alt text](image/r3nana_3.png "r3nima")
+![alt text](image/r3mina_1.png "r3nima")
+![alt text](image/r3mina_2.png "r3nima")
+![alt text](image/r3mina_3.png "r3nima")
 
 ## Feature
 - [x] View from https://anilist.co watch
@@ -23,6 +23,10 @@
 
 # r3ads
 <p align="center"><img src="r3ads/logo.png"></p>
+
+
+![alt text](image/r3ads_1.png "r3nima")
+
 
 ## Feature
 - [x] Sponsored: Remove sponsored ads
