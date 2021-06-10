@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "r3ads",
     "version": "0.0.1",
-    "description": "Remove facebook ads",
+    "description": "Remove ads",
     "homepage_url": "https://github.com/rin2401/r3xt",
     "author": "rin2401",
     "icons": {
@@ -25,7 +25,8 @@
             "js": ["r3ads.js"]
         }
     ],
-    "permissions": [
-        "storage"
-    ]
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": ["storage", "webRequest", "webRequestBlocking", "<all_urls>"]
 }
