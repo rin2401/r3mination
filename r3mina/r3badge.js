@@ -32,8 +32,8 @@ function add_badge() {
 }
 
 function add_click_event() {
-    setTimeout(add_badge, 50)
-
+	for (i = 50; i < 500; i += 50)
+    	setTimeout(add_badge, i)
 }
 
 function add_click() {
