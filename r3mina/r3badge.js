@@ -1,4 +1,4 @@
-FAN = ["lnphane"]
+FAN = ["lnphane", "rin2401"]
 
 
 function add_badge() {
@@ -13,6 +13,12 @@ function add_badge() {
 
     posts = document.querySelectorAll('[role="article"]')
     for (post of posts) {
+        titles = post.querySelectorAll("h1,h2,h3,h4,h5")
+        if (titles.length > 0) {
+            title = titles[0].querySelector("a")
+            if (!title.href || !title.href.includes("r3mina")) continue    
+        }
+        
         comments = post.querySelectorAll('li div[role="article"]')
         for (comment of comments) {
             user = comment.querySelectorAll('a')[1]
@@ -32,8 +38,8 @@ function add_badge() {
 }
 
 function add_click_event() {
-	for (i = 50; i < 500; i += 50)
-    	setTimeout(add_badge, i)
+    for (i = 50; i < 500; i += 50)
+        setTimeout(add_badge, i)
 }
 
 function add_click() {
