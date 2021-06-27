@@ -4,7 +4,7 @@ FAN = ["lnphane", "rin2401"]
 function add_badge() {
     badge = `<div aria-label="Identity Badges" role="button" tabindex="0">
         <div>
-            <span style="color: #f2c2cf">🐹 Phan siêu cứng</span>
+            <span style="color: #fdb233">🐹 Phan siêu cứng</span>
         </div>
     </div>`
 
