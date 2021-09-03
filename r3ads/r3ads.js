@@ -10,15 +10,14 @@ function remove_newline(text) {
 
 function remove() {
     chrome.storage.sync.get(["sponsored", "suggest", "activity", "share", "black", "tab"], function(settings) {
-        spons = document.querySelectorAll('[aria-label="Sponsored"]')
-
-        if (settings.sponsored) {
-            for(spon of spons) {
-                article = spon.closest('[role="article"]')
-                console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
-                article.remove()
-            }        
-        }
+        // spons = document.querySelectorAll('[aria-label="Sponsored"]')
+        // if (settings.sponsored) {
+        //     for(spon of spons) {
+        //         article = spon.closest('[role="article"]')
+        //         console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
+        //         article.remove()
+        //     }        
+        // }
 
         articles = document.querySelectorAll('[role="article"]')
         for(article of articles) {
