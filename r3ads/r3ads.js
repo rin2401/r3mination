@@ -9,32 +9,21 @@ function remove_newline(text) {
 }
 
 function remove() {
-    chrome.storage.sync.get(["sponsored", "suggest", "activity", "share", "black", "tab"], function(settings) {
-        // spons = document.querySelectorAll('[aria-label="Sponsored"]')
-        // if (settings.sponsored) {
-        //     for(spon of spons) {
-        //         article = spon.closest('[role="article"]')
-        //         console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
-        //         article.remove()
-        //     }        
-        // }
-
+    chrome.storage.sync.get(["count", "sponsored", "suggest", "activity", "share", "black", "tab"], function(settings) {
         articles = document.querySelectorAll('[role="article"]')
         for(article of articles) {
-
-            spans = article.querySelectorAll('span')
-            for (span of spans) {
-                if (span.style.position == "absolute") {
-                    span.remove()
-                }
-            }
-
             text = article.innerText.split("·")
             text_inline = text[0].replace(/(\r\n|\n|\r)/gm, "")
-            // console.log(text_inline)
-            if(text_inline.includes("Sponsored") && settings.sponsored) {
+
+
+            const regex = new RegExp('S.*p.*o.*n.*s.*o.*r.*e.*d');
+            is_sponsored = regex.test(text_inline) || text_inline.includes("Sponsored")
+            // is_sponsored = Array.from("Sponsored").every(x => text_inline.includes(x))
+            if(is_sponsored && settings.sponsored) {
                 console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
                 article.remove()
+                if (!settings.count) settings.count = 0
+                chrome.storage.sync.set({"count": settings.count + 1})
             }
 
             if(text[0].includes("Suggested") && settings.suggest) {
@@ -55,7 +44,6 @@ function remove() {
                 article.remove()
             }
 
-            // share = article.querySelectorAll('strong')
             share = article.querySelectorAll('[aria-label^="Shared with"]')
             if(share.length > 1 && !is_except  && settings.share) {
                 console.log("%cShared " + article.getAttribute("aria-posinset"), "font-weight: bold; color: green;", remove_newline(article.innerText))

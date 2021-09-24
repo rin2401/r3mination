@@ -1,10 +1,11 @@
 console.log("Hello popup")
 
-chrome.storage.sync.get(["sponsored", "suggest", "activity", "share", "black", "tab"], function(settings) {
+chrome.storage.sync.get(["count", "sponsored", "suggest", "activity", "share", "black", "tab"], function(settings) {
     console.log("Chrome storage", settings)
 
+    $("#count").html(settings.count)
     if(settings.suggest) {
-    $("#suggest").prop('checked', true)
+        $("#suggest").prop('checked', true)
     }
     if(settings.activity) {
         $("#activity").prop('checked', true)
