@@ -15,10 +15,9 @@ function remove() {
             text = article.innerText.split("·")
             text_inline = text[0].replace(/(\r\n|\n|\r)/gm, "")
 
-
-            const regex = new RegExp('S.*p.*o.*n.*s.*o.*r.*e.*d');
-            is_sponsored = regex.test(text_inline) || text_inline.includes("Sponsored")
-            // is_sponsored = Array.from("Sponsored").every(x => text_inline.includes(x))
+            // const regex = new RegExp('S.*p.*o.*n.*s.*o.*r.*e.*d');
+            // is_sponsored = regex.test(text_inline) || text_inline.includes("Sponsored")
+            is_sponsored = Array.from("Sponsored").every(x => text_inline.includes(x))
             if(is_sponsored && settings.sponsored) {
                 console.log("%cSponsored " + article.getAttribute("aria-posinset"), "font-weight: bold; color: red;", remove_newline(article.innerText))
                 article.remove()
@@ -26,7 +25,14 @@ function remove() {
                 chrome.storage.sync.set({"count": settings.count + 1})
             }
 
-            if(text[0].includes("Suggested") && settings.suggest) {
+            is_reel = text_inline.includes("Reels")
+            if(is_reel) {
+                console.log("%cReels " + article.getAttribute("aria-posinset"), "font-weight: bold; color: blue;", remove_newline(article.innerText))
+                article.remove()
+            }
+
+            is_suggest = text[0].includes("Suggested") || text[0].includes("May Like")
+            if(is_suggest && settings.suggest) {
                 console.log("%cSuggested " + article.getAttribute("aria-posinset"), "font-weight: bold; color: blue;", remove_newline(article.innerText))
                 article.remove()
             }
