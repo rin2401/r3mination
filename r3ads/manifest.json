@@ -1,7 +1,7 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "r3ads",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Remove ads",
     "homepage_url": "https://github.com/rin2401/r3xt",
     "author": "rin2401",
@@ -10,7 +10,7 @@
         "48": "logo.png",
         "128": "logo.png"
     },
-    "browser_action": {
+    "action": {
         "default_icon": {
             "16": "logo.png",
             "24": "logo.png",
@@ -28,5 +28,5 @@
     // "background": {
     //     "scripts": ["background.js"]
     // },
-    "permissions": ["storage", "webRequest", "webRequestBlocking", "<all_urls>"]
+    "permissions": ["storage", "webRequest"]
 }
